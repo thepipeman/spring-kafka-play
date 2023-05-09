@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: kafka-producer
+
+  cloud:
+    stream:
+      kafka:
+        bindings:
+          producer-out-0:
+
+
+
+server:
+  port: 9150
