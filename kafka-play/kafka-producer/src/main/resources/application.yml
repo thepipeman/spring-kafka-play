@@ -3,11 +3,24 @@ spring:
     name: kafka-producer
 
   cloud:
+#    function:
+#      definition: producer
+
     stream:
       kafka:
         bindings:
           producer-out-0:
+            producer:
+              configuration:
+                value.serializer: io.pipecrafts.producer.converter.MessageSerializer
+        binder:
+          brokers: 127.0.0.1:19092
 
+      bindings:
+        producer-out-0:
+          destination: play-topic
+          producer:
+            useNativeEncoding: true
 
 
 server:
